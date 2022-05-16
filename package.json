@@ -10,16 +10,27 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:awesome-cn-cafe.helloWorld"
+    "onView:awesomeCNCafe.cafes"
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "awesome-cn-cafe.helloWorld",
-        "title": "Hello World"
-      }
-    ]
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "awesomeCNCafe",
+          "title": "Café / CN",
+          "icon": "resources/logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "awesomeCNCafe": [
+        {
+          "id": "awesomeCNCafe.cafes",
+          "name": "Café / CN"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
