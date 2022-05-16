@@ -3,3 +3,6 @@ dist
 node_modules
 .vscode-test/
 *.vsix
+cafe
+src/data.json
+src/build.ts
