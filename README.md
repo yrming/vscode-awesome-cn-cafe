@@ -1,5 +1,7 @@
+<br>
+<br>
 <p align='center'>
-<img src="./resources/logo.png" width='100' style="margin-top:40px"/>
+<img src="./resources/logo.png" width='100'/>
 </p>
 
 <p align='center'>
