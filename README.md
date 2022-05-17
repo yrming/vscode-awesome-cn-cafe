@@ -1,4 +1,6 @@
-<p align='center' style="padding-top:40px">
+<p></p>
+
+<p align='center' style="margin-top:40px">
 <img src="./resources/logo.png" width='100'/>
 </p>
 
@@ -8,7 +10,7 @@ VSCode Extension for <a href='https://github.com/ElaWorkshop/awesome-cn-cafe'>Aw
 
 <br>
 <p align='center'>
-<img src="./resources/snapshot.png" width='450' style="border-radius: 10px"/>
+<img src="./resources/snapshot.png" width='450' />
 </p>
 
 ## Related
