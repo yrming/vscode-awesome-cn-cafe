@@ -3,6 +3,13 @@
   "displayName": "Awesome CN Café",
   "description": "A curated list of awesome coffee places for work in China",
   "version": "0.0.1",
+  "publisher": "YRM",
+  "license": "MIT",
+  "icon": "resources/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yrming/vscode-awesome-cn-cafe"
+  },
   "engines": {
     "vscode": "^1.67.0"
   },
