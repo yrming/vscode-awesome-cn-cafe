@@ -1,7 +1,5 @@
-<p></p>
-
-<p align='center' style="margin-top:40px">
-<img src="./resources/logo.png" width='100'/>
+<p align='center'>
+<img src="./resources/logo.png" width='100' style="margin-top:40px"/>
 </p>
 
 <p align='center'>
