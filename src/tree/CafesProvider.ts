@@ -1,6 +1,7 @@
 import { Event, EventEmitter, ProviderResult, TreeDataProvider, TreeItem } from 'vscode'
 import { CityItem } from './CityItem'
 import { CafeItem } from './CafeItem'
+import { PropertyItem } from './PropertyItem'
 import * as raw from '../data.json'
 import { CafeShop } from '../types'
 import { parseShop } from '../utils/parseShop'
@@ -12,34 +13,23 @@ export class CafesProvider implements TreeDataProvider<CityItem> {
   readonly onDidChangeTreeData: Event<CityItem | undefined | void> = this._onDidChangeTreeData.event
 
   private allCities: any[] = []
-  private geo: any
-  private cafes: CafeShop[] = []
 
   constructor() {
     this.allCities = Object.entries(raw)
-    this.geo = Object.freeze({
-      type: 'FeatureCollection',
-      features: Object.values(raw).flatMap((i) => i.data.features as any[])
-    })
-    this.cafes = Object.freeze(
-      this.geo.features.map(
-        (i: any) =>
-          ({
-            ...i,
-            coordinates: i.geometry.coordinates
-          } as CafeShop)
-      )
-    )
   }
 
   getTreeItem(element: CityItem): TreeItem | Thenable<TreeItem> {
     return element
   }
 
-  getChildren(element?: CityItem): ProviderResult<CityItem[] | CafeItem[]> {
+  getChildren(
+    element?: CityItem | CafeItem
+  ): ProviderResult<CityItem[] | CafeItem[] | PropertyItem[]> {
     if (element) {
       if (element instanceof CityItem) {
-        return this.getCafesByCity(element.city!)
+        return this.getCafeItems(element.originalData)
+      } else if (element instanceof CafeItem) {
+        return this.getPropertyItems(element.cafe)
       }
     } else {
       return this.getCityItems()
@@ -49,19 +39,22 @@ export class CafesProvider implements TreeDataProvider<CityItem> {
   getCityItems(): CityItem[] {
     return this.allCities.map(([k, v]) => {
       const label = `${v.name}(${v.count})`
-      return new CityItem(label, k)
+      return new CityItem(label, k, v)
     })
   }
 
-  getCafesByCity(city: string): CafeItem[] {
-    const info = this.allCities.find(([k, v]) => k === city)
-    const cafes = info[1].data.features.map((i: any) => {
+  getCafeItems(originalData: any): CafeItem[] {
+    const cafes = originalData.data.features.map((i: any) => {
       const cafe = {
         ...i,
         coordinates: i.geometry.coordinates
       } as CafeShop
       return parseShop(cafe)
     })
-    return cafes.map((i: any) => new CafeItem(i.name))
+    return cafes.map((i: any) => new CafeItem(i.name, i))
+  }
+
+  getPropertyItems(cafe: any) {
+    return cafe.table.map(([k, v]: any) => new PropertyItem(`${k}：${v}`))
   }
 }
