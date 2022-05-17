@@ -56,7 +56,6 @@ export class CafesProvider implements TreeDataProvider<CityItem> {
   }
 
   getPropertyItems(cafe: any) {
-    console.log(cafe)
     return cafe.table.map(([k, v]: any) => new PropertyItem(`${k}：${v}`))
   }
 }
