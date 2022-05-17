@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+import * as path from 'path'
+
 export const ColorToIcon: Record<string, string> = {
-  '#50C240': 'mdi:wifi-strength-4',
-  '#F3AE1A': 'mdi:wifi-strength-2',
-  '#C24740': 'mdi:wifi-strength-1',
-  '#BEBEBE': 'mdi:domain-off'
+  '#50C240': path.join(__filename, '../../resources/wifi-strength-4.svg'),
+  '#F3AE1A': path.join(__filename, '../../resources/wifi-strength-2.svg'),
+  '#C24740': path.join(__filename, '../../resources/wifi-strength-1.svg'),
+  '#BEBEBE': path.join(__filename, '../../resources/domain-off.svg')
 }
 
 export const Colors = Object.keys(ColorToIcon)

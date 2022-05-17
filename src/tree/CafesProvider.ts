@@ -5,6 +5,7 @@ import { PropertyItem } from './PropertyItem'
 import * as raw from '../data.json'
 import { CafeShop } from '../types'
 import { parseShop } from '../utils/parseShop'
+import { ColorToIcon } from '../constants'
 
 export class CafesProvider implements TreeDataProvider<CityItem> {
   private _onDidChangeTreeData: EventEmitter<CityItem | undefined | void> = new EventEmitter<
@@ -51,10 +52,11 @@ export class CafesProvider implements TreeDataProvider<CityItem> {
       } as CafeShop
       return parseShop(cafe)
     })
-    return cafes.map((i: any) => new CafeItem(i.name, i))
+    return cafes.map((i: any) => new CafeItem(i.name, i, ColorToIcon[i.color]))
   }
 
   getPropertyItems(cafe: any) {
+    console.log(cafe)
     return cafe.table.map(([k, v]: any) => new PropertyItem(`${k}：${v}`))
   }
 }

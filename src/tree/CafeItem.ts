@@ -4,9 +4,9 @@ export class CafeItem extends TreeItem {
   constructor(
     public readonly label: string,
     public readonly cafe: any,
+    public readonly iconPath?: string | ThemeIcon,
     public readonly tooltip?: string,
     public readonly collapsibleState?: TreeItemCollapsibleState,
-    public readonly iconPath?: string | ThemeIcon,
     public readonly command?: Command
   ) {
     super(label)
