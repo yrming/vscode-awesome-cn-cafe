@@ -10,8 +10,17 @@ VSCode Extension for <a href='https://github.com/ElaWorkshop/awesome-cn-cafe'>Aw
 
 <br>
 <p align='center'>
-<img src="./resources/snapshot.png" width='450' />
+<img src="./resources/snapshot.png" width='500' />
 </p>
+
+## TODO
+
+- [ ] Instant searching
+- [ ] Show my location and distances to shops
+- [ ] Direct open in map apps
+- [ ] Filter by network speed
+- [ ] Filter by refererrs
+- [ ] Auto sync with the source every day
 
 ## Related
 
