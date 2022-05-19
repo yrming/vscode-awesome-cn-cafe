@@ -15,6 +15,7 @@ VSCode Extension for <a href='https://github.com/ElaWorkshop/awesome-cn-cafe'>Aw
 
 ## TODO
 
+- [x] View shops
 - [ ] Instant searching
 - [ ] Show my location and distances to shops
 - [ ] Direct open in map apps
